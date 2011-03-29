@@ -1,4 +1,4 @@
-Mspacman is a basic frontend for makepkg and pacman. Its purpose is primarily 
+Mspacman is a basic wrapper for makepkg and pacman. Its purpose is primarily 
 to focus on the ability to download and install packages from the 
 AUR, but it will also eventually act as an interface to the Arch Linux package
 database. 
