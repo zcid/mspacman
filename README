@@ -1,4 +1,22 @@
-Mspacman is a basic wrapper for makepkg and pacman. Its purpose is primarily 
-to focus on the ability to download and install packages from the 
-AUR, but it will also eventually act as an interface to the Arch Linux package
-database. 
+Mspacman is a makepkg and pacman wrapper/helper.
+It accepts several flags that define its' behavior and passes most of the work
+to the makepkg and pacman programs. As of right now, mspacman is only
+performing limited functions:
+    -search both the package database and AUR
+    -grab tarballs from the AUR
+    -create and install packages from tarballs
+    -install from package database via pacman
+
+There is currently no dependency checking, but it will be implemented in the
+future as that was a prime motivation for the creation of this tool.
+
+The currenly supported flags are:
+    -I  install package according to the following modifiers
+        l   local tarball or PKGBUILD file
+        r   grab tarball and install from AUR
+        p   offically supported package (pacman -S)
+    
+    -S  search for package or PKGBUILD
+        a   AUR
+        p   official package database
+        b   search both
