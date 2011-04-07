@@ -26,6 +26,7 @@ The currenly supported flags are:
 """
 
 import sys
+import dosearch
 
 error = False
 error_text = ""
@@ -38,11 +39,11 @@ def print_help():
 def parse_flags(args):
     print("parsing flags:\n", args)
 
-    functions = {   'S':search,
-                    'I':install }
+    actions = {   'S' : search,
+                  'I' : install }
     
-    if args[1][0] == '-' and args[1][1] in functions:
-        functions[args[1][1]]()
+    if args[1][0] == '-' and args[1][1] in actions:
+        actions[args[1][1]](args[1:3])
         return
     else:
         print("ERROR: Invalid Argument")
@@ -68,8 +69,20 @@ def parse_flags(args):
     
     return
 
-def search():
+def search(target):
     print("searching...")
+    actions = { 'a' : [dosearch.search_aur],
+                'p' : [dosearch.search_packages],
+                'b' : [dosearch.search_packages,dosearch.search_aur] }
+    
+    if target[0][2] in actions:
+        for func in actions[target[0][2]]:
+            func(target[1])
+    else:
+        error = True
+        print("ERROR: Invalid Argument")
+    
+    return
 
 def install():
     print("installing...")
