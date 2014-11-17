@@ -1,3 +1,7 @@
+* Warning *
+This is an unfinished project that will most likely never be taken up again.
+*Warning*
+
 Mspacman is a makepkg and pacman wrapper/helper.
 It accepts several flags that define its' behavior and passes most of the work
 to the makepkg and pacman programs. As of right now, mspacman is only
